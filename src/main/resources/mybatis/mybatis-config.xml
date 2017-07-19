@@ -1,0 +1,12 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE configuration
+        PUBLIC "-//mybatis.org//DTD Config 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-config.dtd">
+<configuration>
+    <!-- 官方参考 http://www.mybatis.org/mybatis-3/zh
+        可以在这里设置别名，设置自己的handler等等-->
+    <settings>
+        <!-- 下划线与驼峰式命名规则的映射 -->
+        <setting name="mapUnderscoreToCamelCase" value="true"/>
+    </settings>
+</configuration>

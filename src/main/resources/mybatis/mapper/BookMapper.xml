@@ -1,0 +1,25 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper
+        PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+        "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="cn.edu.whu.common.dao.BookDao">
+    <select id="listBooks" resultType="Book">
+        <include refid="bookDetailSql"/>
+    </select>
+
+    <select id="getBook" resultType="Book">
+        <include refid="bookDetailSql"/>
+        WHERE
+        name = #{name}
+    </select>
+
+    <sql id="bookDetailSql">
+        SELECT
+        id,
+        name,
+        author,
+        publisher
+        FROM
+        book
+    </sql>
+</mapper>
