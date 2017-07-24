@@ -7,6 +7,21 @@
     <version>1.0.0</version>
     <name>SSMTemplate Maven Webapp</name>
     <url>http://maven.apache.org</url>
+    <!-- 制止IDE每次偷偷换了Java language level
+https://stackoverflow.com/questions/27037657/stop-intellij-idea-to-switch-java-language-level-everytime-the-pom-is-reloaded -->
+    <build>
+        <plugins>
+            <plugin>
+                <groupId>org.apache.maven.plugins</groupId>
+                <artifactId>maven-compiler-plugin</artifactId>
+                <version>3.5.1</version>
+                <configuration>
+                    <source>1.8</source>
+                    <target>1.8</target>
+                </configuration>
+            </plugin>
+        </plugins>
+    </build>
     <properties>
         <springversion>4.3.9.RELEASE</springversion>
         <junitversion>4.12</junitversion>
