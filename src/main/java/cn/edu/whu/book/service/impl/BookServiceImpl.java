@@ -2,8 +2,9 @@ package cn.edu.whu.book.service.impl;
 
 import cn.edu.whu.book.dto.BookInfo;
 import cn.edu.whu.book.service.BookService;
-import cn.edu.whu.common.dao.BookDao;
-import cn.edu.whu.common.entity.Book;
+import cn.edu.whu.common.dao.BookMapper;
+import cn.edu.whu.common.pojo.Book;
+import cn.edu.whu.common.pojo.BookExample;
 import org.slf4j.Logger;
 import org.slf4j.LoggerFactory;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -19,9 +20,9 @@ import java.util.List;
 public class BookServiceImpl implements BookService {
     private static final Logger LOGGER = LoggerFactory.getLogger(BookServiceImpl.class);
     @Autowired
-    private BookDao bookDao;
+    private BookMapper bookMapper;
     public List<BookInfo> listBooks() {
-        List<Book> books = bookDao.listBooks();
+        List<Book> books = bookMapper.selectByExample(null);
         List<BookInfo> infos = new ArrayList<BookInfo>();
         for (Book book : books) {
             BookInfo info = new BookInfo();
@@ -34,6 +35,12 @@ public class BookServiceImpl implements BookService {
     }
 
     public Book getBook(String name) {
-        return bookDao.getBook(name);
+        BookExample bookExample = new BookExample();
+        BookExample.Criteria criteria = bookExample.createCriteria();
+        criteria.andNameEqualTo(name);
+        List<Book> bookList = bookMapper.selectByExample(bookExample);
+        if (bookList.size() > 0)
+            return bookList.get(0);
+        return null;
     }
 }

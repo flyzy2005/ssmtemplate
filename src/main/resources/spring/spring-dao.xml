@@ -39,7 +39,7 @@
         <!-- 配置MyBaties全局配置文件:mybatis-config.xml -->
         <property name="configLocation" value="classpath:mybatis/mybatis-config.xml" />
         <!-- 扫描entity包 使用别名 (多个则用,隔开)-->
-        <property name="typeAliasesPackage" value="cn.edu.whu.common.entity" />
+        <property name="typeAliasesPackage" value="cn.edu.whu.common.pojo" />
         <!-- 扫描sql配置文件:mapper需要的xml文件 -->
         <property name="mapperLocations" value="classpath:mybatis/mapper/*.xml" />
     </bean>

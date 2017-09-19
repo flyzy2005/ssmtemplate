@@ -1,7 +1,7 @@
 package cn.edu.whu.book.service;
 
 import cn.edu.whu.book.dto.BookInfo;
-import cn.edu.whu.common.entity.Book;
+import cn.edu.whu.common.pojo.Book;
 
 import java.util.List;
 

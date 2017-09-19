@@ -3,7 +3,6 @@ package cn.edu.whu.book.controller;
 import cn.edu.whu.book.dto.BookInfo;
 import cn.edu.whu.book.service.BookService;
 import cn.edu.whu.common.dto.ResultMessage;
-import cn.edu.whu.common.entity.Book;
 import cn.edu.whu.common.util.StringUtils;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Controller;
@@ -37,6 +36,6 @@ public class BookController {
     public String book(@PathVariable String name) {
         if (StringUtils.isEmpty(name))
             return new ResultMessage(false, "书名不能为空",400).toString();
-        return new ResultMessage<Book>(true, "查询成功", bookService.getBook(name), 200).toString();
+        return new ResultMessage<>(true, "查询成功", bookService.getBook(name), 200).toString();
     }
 }

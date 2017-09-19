@@ -20,6 +20,30 @@ https://stackoverflow.com/questions/27037657/stop-intellij-idea-to-switch-java-l
                     <target>1.8</target>
                 </configuration>
             </plugin>
+            <plugin>
+                <!-- http://www.mybatis.org/generator/index.html -->
+                <groupId>org.mybatis.generator</groupId>
+                <artifactId>mybatis-generator-maven-plugin</artifactId>
+                <version>1.3.5</version>
+                <configuration>
+                    <!-- 	If true, then MBG will write progress messages to the build log.-->
+                    <verbose>true</verbose>
+                    <!--	If true, then existing Java files will be overwritten if an existing Java file if found with the same name as a generated file.
+                    If not specified, and a Java file already exists with the same name as a generated file,
+                    then MBG will write the newly generated Java file to the proper directory with a unique name (e.g. MyClass.java.1, MyClass.java.2, etc.).
+                    Important: MBG will always merge and overwrite XML files. -->
+                    <overwrite>true</overwrite>
+                    <configurationFile>src/main/resources/mybatis/generatorConfig.xml</configurationFile>
+                </configuration>
+                <dependencies>
+                    <dependency>
+                        <groupId>mysql</groupId>
+                        <artifactId>mysql-connector-java</artifactId>
+                        <version>${mysqlversion}</version>
+                        <scope>runtime</scope>
+                    </dependency>
+                </dependencies>
+            </plugin>
         </plugins>
     </build>
     <properties>
@@ -51,12 +75,12 @@ https://stackoverflow.com/questions/27037657/stop-intellij-idea-to-switch-java-l
         http://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html
         官网下载相应的驱动jar包引到工程中去 -->
         <!-- 引用就只需要在WEB-INF下新建一个lib文件夹，拖进去后在Project Structure中选择Artifacts将jar包put到lib下-->
-        <dependency>
-            <groupId>mysql</groupId>
-            <artifactId>mysql-connector-java</artifactId>
-            <version>${mysqlversion}</version>
-            <scope>runtime</scope>
-        </dependency>
+        <!--<dependency>-->
+        <!--<groupId>mysql</groupId>-->
+        <!--<artifactId>mysql-connector-java</artifactId>-->
+        <!--<version>${mysqlversion}</version>-->
+        <!--<scope>runtime</scope>-->
+        <!--</dependency>-->
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
