@@ -75,12 +75,12 @@ https://stackoverflow.com/questions/27037657/stop-intellij-idea-to-switch-java-l
         http://www.oracle.com/technetwork/database/features/jdbc/jdbc-ucp-122-3110062.html
         官网下载相应的驱动jar包引到工程中去 -->
         <!-- 引用就只需要在WEB-INF下新建一个lib文件夹，拖进去后在Project Structure中选择Artifacts将jar包put到lib下-->
-        <!--<dependency>-->
-        <!--<groupId>mysql</groupId>-->
-        <!--<artifactId>mysql-connector-java</artifactId>-->
-        <!--<version>${mysqlversion}</version>-->
-        <!--<scope>runtime</scope>-->
-        <!--</dependency>-->
+        <dependency>
+            <groupId>mysql</groupId>
+            <artifactId>mysql-connector-java</artifactId>
+            <version>${mysqlversion}</version>
+            <scope>runtime</scope>
+        </dependency>
         <dependency>
             <groupId>org.mybatis</groupId>
             <artifactId>mybatis</artifactId>
